@@ -1,0 +1,17 @@
+# Dockerfile for Python Application
+FROM python:latest
+
+# Set working directory
+WORKDIR /app
+
+# Copy requirements file if exists
+COPY requirements.txt .
+
+# Install required Python packages
+RUN pip install mysql-connector-python
+
+# Copy the application code
+COPY app.py .
+
+# Run the application
+CMD ["python", "app.py"]
